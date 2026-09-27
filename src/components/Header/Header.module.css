@@ -1,0 +1,56 @@
+.header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.wrapperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navLink {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+}
+.navigation {
+  display: flex;
+}
+.navigLinks {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.navigAuth {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.logLink {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.regLink {
+  border-radius: 12px;
+  padding: 14px 39px;
+  width: 166px;
+  height: 48px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-bg);
+  background: var(--color-text);
+}
