@@ -38,8 +38,8 @@ export default function TrialLessonModal({
     resolver: yupResolver(schema),
   });
   const onSubmit = (data: TrialLessonForm) => {
-      toast.success(`${data.fullName}, trial lesson booked successfully!`);
-      onClose();
+    toast.success(`${data.fullName}, trial lesson booked successfully!`);
+    onClose();
   };
   return (
     <Modal onClose={onClose}>
@@ -127,27 +127,33 @@ export default function TrialLessonModal({
         </div>
 
         <div className={css.formFields}>
-          <label className={css.formInput}>
+          <label
+            className={`${css.formInput} ${
+              errors.fullName ? css.inputError : ""
+            }`}
+          >
             <input
               type="text"
               {...register("fullName")}
               placeholder="Full Name"
-              className={errors.fullName ? css.inputError : ""}
             />
           </label>
           {errors.fullName && (
             <p className={css.error}>{errors.fullName.message}</p>
           )}
-          <label className={css.formInput}>
-            <input type="email" {...register("email")} placeholder="Email" className={errors.email ? css.inputError : ""}/>
+          <label
+            className={`${css.formInput} ${errors.email ? css.inputError : ""}`}
+          >
+            <input type="email" {...register("email")} placeholder="Email" />
           </label>
           {errors.email && <p className={css.error}>{errors.email.message}</p>}
-          <label className={css.formInput}>
+          <label
+            className={`${css.formInput} ${errors.phone ? css.inputError : ""}`}
+          >
             <input
               type="tel"
               {...register("phone")}
-                          placeholder="Phone number"
-                          className={errors.phone ? css.inputError : ""}
+              placeholder="Phone number"
             />
           </label>
           {errors.phone && <p className={css.error}>{errors.phone.message}</p>}

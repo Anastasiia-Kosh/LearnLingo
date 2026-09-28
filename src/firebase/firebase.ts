@@ -1,7 +1,6 @@
-// initializeApp запускає Firebase у нашому React-застосунку.
-// getDatabase дає нам доступ саме до Realtime Database.
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDi-KTxEM7t3luN9SoZsSEULyMJjHSUy7w",
@@ -14,6 +13,8 @@ const firebaseConfig = {
   databaseURL: "https://learnlingo-ce0a1-default-rtdb.firebaseio.com",
 };
 
-// Initialize Firebase
+
 const app = initializeApp(firebaseConfig);
+
 export const db = getDatabase(app);
+export const auth = getAuth(app);

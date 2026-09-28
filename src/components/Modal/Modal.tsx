@@ -5,9 +5,10 @@ import { useEffect, type ReactNode} from "react";
 
 interface ModalProps{
     children: ReactNode;
-    onClose: () => void;
+  onClose: () => void;
+  className?: string;
 }
-export default function Modal({children, onClose }: ModalProps) {
+export default function Modal({children, onClose, className }: ModalProps) {
      const handleBackdropClick = (event: React.MouseEvent<HTMLDivElement>) => {
     if (event.target === event.currentTarget) {
       onClose();
@@ -36,9 +37,9 @@ export default function Modal({children, onClose }: ModalProps) {
   role="dialog"
   aria-modal="true"
 >
-  <div className={css.modal}>
-     {children}
-  </div>
+ <div className={`${css.modal} ${className ?? ""}`}>
+  {children}
+</div>
 </div>,
     document.body
   );

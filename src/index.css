@@ -62,6 +62,8 @@ button {
   cursor: pointer;
   border: none;
   padding: 0;
+  outline: none;
+  background: none;
 }
 .visually-hidden {
   position: absolute;

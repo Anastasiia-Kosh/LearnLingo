@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import css from "./Header.module.css";
+import { useState } from "react";
+import LoginForm from "../LoginForm/LoginForm";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 export default function Header() {
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+
   return (
     <header className={css.header}>
       <div className="container">
@@ -24,14 +30,30 @@ export default function Header() {
           </nav>
           <ul className={css.navigAuth}>
             <li>
-              <a  className={css.logLink} href="/"><svg width="20" height="20">
-              <use href="/sprite.svg#icon-log-in-01" />
-            </svg>Log in</a>
+              <button
+                type="button"
+                className={css.logLink}
+                onClick={() => setIsLoginOpen(true)}
+              >
+                <svg width="20" height="20">
+                  <use href="/sprite.svg#icon-log-in-01" />
+                </svg>
+                Log in
+              </button>
             </li>
-            <li className={css.regLink}>
-              <a href="/">Registration</a>
+            <li>
+              <button
+                className={css.regLink}
+                onClick={() => setIsRegisterOpen(true)}
+              >
+                Registration
+              </button>
             </li>
           </ul>
+          {isLoginOpen && <LoginForm onClose={() => setIsLoginOpen(false)} />}
+          {isRegisterOpen && (
+            <RegisterForm onClose={() => setIsRegisterOpen(false)} />
+          )}
         </div>
       </div>
     </header>

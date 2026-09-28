@@ -133,7 +133,6 @@
   background-color: var(--color-bg-btn);
 }
 .error {
-  margin-top: 4px;
   font-size: 12px;
   line-height: 1.3;
   color: #d9534f;
