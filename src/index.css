@@ -2,6 +2,7 @@
   --color-bg: #ffffff;
   --color-bg-tchr: #f8f8f8;
   --color-text: #121417;
+  --color-text-card: #8a8a89;
   --color-border: #bfd6ea;
   --color-bg-btn: #9fb7ce;
   --font-family: "Roboto", sans-serif;
@@ -46,7 +47,10 @@ a {
   cursor: pointer;
 }
 button {
+  display: block;
   cursor: pointer;
+  border: none;
+  padding: 0;
 }
 .visually-hidden {
   position: absolute;

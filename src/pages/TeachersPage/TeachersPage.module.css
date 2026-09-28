@@ -1,0 +1,10 @@
+.page {
+  background-color: var(--color-bg-tchr);
+  padding-left: 64px;
+  padding-right: 64px;
+}
+.teacherList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

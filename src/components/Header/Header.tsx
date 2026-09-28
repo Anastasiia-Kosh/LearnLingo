@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import css from "./Header.module.css";
+
 export default function Header() {
   return (
     <header className={css.header}>
@@ -6,24 +8,24 @@ export default function Header() {
         <div className={css.wrapperHeader}>
           <a href="/" className={css.logo}>
             <svg width="24" height="24">
-              <use href="/public/sprite.svg#icon-ukraine" />
+              <use href="/sprite.svg#icon-ukraine" />
             </svg>
             LearnLingo
           </a>
           <nav className={css.navigation}>
             <ul className={css.navigLinks}>
               <li className={css.navLink}>
-                <a href="/">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li className={css.navLink}>
-                <a href="/teachers">Teachers</a>
+                <Link to="/teachers">Teachers</Link>
               </li>
             </ul>
           </nav>
           <ul className={css.navigAuth}>
             <li>
               <a  className={css.logLink} href="/"><svg width="20" height="20">
-              <use href="/public/sprite.svg#icon-log-in-01" />
+              <use href="/sprite.svg#icon-log-in-01" />
             </svg>Log in</a>
             </li>
             <li className={css.regLink}>
