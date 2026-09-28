@@ -3,6 +3,7 @@ import css from "./Header.module.css";
 import { useState } from "react";
 import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
+import Modal from "../Modal/Modal";
 
 export default function Header() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
@@ -50,9 +51,22 @@ export default function Header() {
               </button>
             </li>
           </ul>
-          {isLoginOpen && <LoginForm onClose={() => setIsLoginOpen(false)} />}
+
+          {isLoginOpen && (
+            <Modal
+              onClose={() => setIsLoginOpen(false)}
+              className={css.authModal}
+            >
+              <LoginForm onClose={() => setIsLoginOpen(false)} />
+            </Modal>
+          )}
           {isRegisterOpen && (
-            <RegisterForm onClose={() => setIsRegisterOpen(false)} />
+            <Modal
+              onClose={() => setIsRegisterOpen(false)}
+              className={css.authModal}
+            >
+              <RegisterForm onClose={() => setIsRegisterOpen(false)} />
+            </Modal>
           )}
         </div>
       </div>

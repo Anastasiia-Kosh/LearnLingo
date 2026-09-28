@@ -4,15 +4,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginUser } from "../../firebase/auth";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
-import Modal from "../Modal/Modal";
-import css from "../RegisterPage/RegisterPage.module.css";
+import css from "../RegisterForm/RegisterForm.module.css";
 
 interface LoginForm {
   email: string;
   password: string;
 }
 
-interface LoginPageProps {
+interface LoginFormProps {
   onClose: () => void;
 }
 
@@ -24,7 +23,7 @@ const schema = yup.object({
   password: yup.string().required("Password is required"),
 });
 
-export default function LoginForm({ onClose }: LoginPageProps) {
+export default function LoginForm({ onClose }: LoginFormProps) {
   const {
     register,
     handleSubmit,
@@ -52,7 +51,7 @@ export default function LoginForm({ onClose }: LoginPageProps) {
   };
 
   return (
-    <Modal onClose={onClose} className={css.registerModal}>
+    <>
       <button
         type="button"
         className={css.closeButton}
@@ -113,6 +112,6 @@ export default function LoginForm({ onClose }: LoginPageProps) {
           Log in
         </button>
       </form>
-    </Modal>
+    </>
   );
 }

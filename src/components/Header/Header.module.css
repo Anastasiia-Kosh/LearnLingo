@@ -1,7 +1,11 @@
+.authModal {
+  max-width: 566px;
+}
 .header {
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
 .wrapperHeader {
   display: flex;
   align-items: center;

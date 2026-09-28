@@ -2,8 +2,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerUser } from "../../firebase/auth";
-import Modal from "../Modal/Modal";
-import css from "./RegisterPage.module.css";
+import css from "./RegisterForm.module.css";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
 
@@ -59,7 +58,7 @@ const onSubmit = async (data: RegisterForm) => {
 };
 
   return (
-    <Modal onClose={onClose} className={css.registerModal}>
+    <>
       <button type="button" className={css.closeButton} onClick={onClose}>
         <svg width="16" height="16">
           <use href="/sprite.svg#icon-x-icon" />
@@ -105,6 +104,6 @@ const onSubmit = async (data: RegisterForm) => {
           Sign Up
         </button>
       </form>
-    </Modal>
+      </>
   );
 }
