@@ -1,4 +1,5 @@
 import type { Teacher } from "../../types/teacher";
+import TrialLessonModal from "../TrialLessonModal/TrialLessonModal";
 import css from "./TeacherCard.module.css";
 import { useState } from "react";
 
@@ -7,12 +8,13 @@ interface TeacherProps {
 }
 
 export default function TeacherCard({ teacher }: TeacherProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [isTrialOpen, setIsTrialOpen] = useState(false);
   return (
     <article className={css.teacherCard}>
       <div className={css.avatarWrap}>
         {" "}
-        <img className={css.avatar} src={teacher.avatar_url} alt="Teacher" />
+        <img className={css.avatar} src={teacher.avatar_url} alt={teacher.name} />
       </div>
       <div className={css.textWrap}>
         <div className={css.headWrap}>
@@ -108,8 +110,12 @@ export default function TeacherCard({ teacher }: TeacherProps) {
             </li>
           ))}
         </ul>
-        {isExpanded && <button type="button" className={css.buttonTrial}>Book trial lesson</button>}
-      </div>
-    </article>
+        {isExpanded && <button type="button" className={css.buttonTrial} onClick={() => setIsTrialOpen(true)}>Book trial lesson</button>}
+          </div>
+                {isTrialOpen && (
+  <TrialLessonModal onClose={() => setIsTrialOpen(false)} teacher={teacher} />
+)}
+      </article>
+
   );
 }

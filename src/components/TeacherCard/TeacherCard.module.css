@@ -25,7 +25,10 @@
   width: 96px;
   height: auto;
 }
-
+.textWrap {
+  flex: 1;
+  min-width: 0;
+}
 .headWrap {
   display: flex;
   align-items: flex-start;
