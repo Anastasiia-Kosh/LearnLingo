@@ -91,6 +91,10 @@
   fill: none;
   stroke: var(--color-text);
 }
+.buttonHeart svg.favorite {
+  fill: var(--color-bg-btn);
+  stroke: var(--color-bg-btn);
+}
 .buttonHeart:hover,
 .buttonHeart:focus,
 .buttonLink:hover,

@@ -7,19 +7,19 @@ import Modal from "../Modal/Modal";
 import { useAuth } from "../../context/useAuth";
 import { logoutUser } from "../../firebase/auth";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const { user, isLoading } = useAuth();
-
-  console.log("user:", user);
-  console.log("isLoading:", isLoading);
-
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
   const handleLogout = async () => {
     try {
       await logoutUser();
+      navigate("/");
     } catch {
       toast.error("Failed to log out");
     }

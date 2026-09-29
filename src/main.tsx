@@ -13,7 +13,7 @@ createRoot(document.getElementById("root")!).render(
     <Toaster
       position="top-center"
       toastOptions={{
-        duration: 5000,
+        duration: 3000,
         style: {
           minHeight: "64px",
           padding: "16px 20px",
