@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginUser } from "../../firebase/auth";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
-import css from "../RegisterForm/RegisterForm.module.css";
+import css from "../RegisterForm/AuthForms.module.css";
 
 interface LoginForm {
   email: string;

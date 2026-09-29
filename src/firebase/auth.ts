@@ -1,8 +1,4 @@
-// registerUser()
-// loginUser()
-// logoutUser()
-
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import { auth } from "./firebase";
 
 export const registerUser = async (
@@ -32,4 +28,8 @@ export const loginUser = async (
   );
 
   return userCredential.user;
+};
+
+export const logoutUser = async () => {
+  await signOut(auth);
 };

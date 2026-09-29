@@ -1,5 +1,5 @@
 .authModal {
-  max-width: 566px;
+  --modal-width: 566px;
 }
 .header {
   padding-top: 20px;
@@ -57,4 +57,10 @@
   line-height: 1.25;
   color: var(--color-bg);
   background: var(--color-text);
+}
+.logUserName {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--color-bg-btn);
 }

@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerUser } from "../../firebase/auth";
-import css from "./RegisterForm.module.css";
+import css from "./AuthForms.module.css";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
 
@@ -35,27 +35,22 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
     resolver: yupResolver(schema),
   });
 
-const onSubmit = async (data: RegisterForm) => {
-  try {
-    const user = await registerUser(
-      data.name,
-      data.email,
-      data.password
-    );
-
-    console.log(user);
-  } catch (error) {
-    if (error instanceof FirebaseError) {
+  const onSubmit = async (data: RegisterForm) => {
+    try {
+      const user = await registerUser(data.name, data.email, data.password);
+      console.log(user);
+      toast.success(`${data.name}, you have successfully registered!`);
+      onClose();
+    } catch (error) {
       if (error instanceof FirebaseError) {
-  if (error.code === "auth/email-already-in-use") {
-    toast.error("This email is already registered.");
-  } else {
-    toast.error("Something went wrong. Please try again.");
-  }
-}
+        if (error.code === "auth/email-already-in-use") {
+          toast.error("This email is already registered.");
+        } else {
+          toast.error("Something went wrong. Please try again.");
+        }
+      }
     }
-  }
-};
+  };
 
   return (
     <>
@@ -104,6 +99,6 @@ const onSubmit = async (data: RegisterForm) => {
           Sign Up
         </button>
       </form>
-      </>
+    </>
   );
 }

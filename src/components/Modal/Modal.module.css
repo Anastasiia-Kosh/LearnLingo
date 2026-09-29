@@ -15,7 +15,7 @@
   background-color: #ffffff;
   padding: 64px;
   border-radius: 30px;
-  max-width: 600px;
+  max-width: var(--modal-width, 600px);
   width: 100%;
   position: relative;
 }
