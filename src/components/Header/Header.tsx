@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 export default function Header() {
   const navigate = useNavigate();
   const { user } = useAuth();
-  
+
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
 
@@ -53,10 +53,13 @@ export default function Header() {
                   {user.displayName || user.email}
                 </li>
                 <li>
+                  <Link to="/favorites">Favorites</Link>
+                </li>
+                <li>
                   <button
                     type="button"
                     onClick={handleLogout}
-                    className={css.logLink}
+                    className={css.logOutLink}
                   >
                     Log out
                     <svg width="20" height="20">

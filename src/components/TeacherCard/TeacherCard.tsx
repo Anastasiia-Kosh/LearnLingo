@@ -19,7 +19,7 @@ export default function TeacherCard({ teacher, onFavoriteToggle, isFavorite, }: 
 
   const handleFavoriteClick = async () => {
   if (!user) {
-    toast.error("Цей функціонал доступний лише для авторизованих користувачів");
+    toast.error("This feature is available only to authorized users. Please log in or register.");
     return;
   }
 

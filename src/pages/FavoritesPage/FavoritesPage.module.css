@@ -1,0 +1,30 @@
+.page {
+  background-color: var(--color-bg-tchr);
+  padding-top: 20px;
+  padding-bottom: 64px;
+}
+.teacherList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.title {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.16667;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.button {
+  display: block;
+  width: 100%;
+  max-width: 267px;
+  border-radius: 12px;
+  padding: 16px 0;
+  background-color: var(--color-bg-btn);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55556;
+  margin-top: 32px;
+  text-align: center;
+}
