@@ -29,13 +29,21 @@ export default function TeacherCard({
       return;
     }
 
-    if (isFavorite) {
-      await removeFavorite(user.uid, teacher.id);
-    } else {
-      await addFavorite(user.uid, teacher.id);
-    }
+    try {
+      if (isFavorite) {
+        await removeFavorite(user.uid, teacher.id);
+      } else {
+        await addFavorite(user.uid, teacher.id);
+      }
 
-    onFavoriteToggle(teacher.id);
+      onFavoriteToggle(teacher.id);
+    } catch {
+      toast.error(
+        isFavorite
+          ? "Failed to remove teacher from favorites."
+          : "Failed to add teacher to favorites.",
+      );
+    }
   };
   return (
     <article className={css.teacherCard}>

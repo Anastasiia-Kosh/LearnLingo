@@ -6,6 +6,7 @@ import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import { useAuth } from "../../context/useAuth";
 import { getFavorites } from "../../firebase/favorites";
 import TeacherFilters from "../../components/TeacherFilters/TeacherFilters";
+import toast from "react-hot-toast";
 
 const PER_PAGE = 4;
 
@@ -75,8 +76,12 @@ export default function TeachersPage() {
     }
 
     const loadFavorites = async () => {
-      const ids = await getFavorites(user.uid);
-      setFavoriteIds(ids);
+      try {
+        const ids = await getFavorites(user.uid);
+        setFavoriteIds(ids);
+      } catch {
+        toast.error("Failed to load favorites.");
+      }
     };
 
     loadFavorites();
@@ -102,7 +107,7 @@ export default function TeachersPage() {
           {isLoading ? (
             <p>Loading...</p>
           ) : error ? (
-            <p>Failed to load favorite teachers.</p>
+            <p>Failed to load teachers.</p>
           ) : filteredTeachers.length === 0 ? (
             <p>No teachers found matching your filters.</p>
           ) : (
