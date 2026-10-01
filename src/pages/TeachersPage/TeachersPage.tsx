@@ -12,6 +12,8 @@ const PER_PAGE = 4;
 export default function TeachersPage() {
   const { user } = useAuth();
   const [teachers, setTeachers] = useState<Teacher[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [page, setPage] = useState(1);
 
@@ -35,8 +37,14 @@ export default function TeachersPage() {
 
   useEffect(() => {
     const loadTeachers = async () => {
-      const data = await getTeachers();
-      setTeachers(data);
+      try {
+        const data = await getTeachers();
+        setTeachers(data);
+      } catch {
+        setError(true);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
     loadTeachers();
@@ -91,22 +99,23 @@ export default function TeachersPage() {
           onFilterChange={handleFilterChange}
         />
         <ul className={css.teacherList}>
-          {filteredTeachers.length === 0 ? (
-          <>
+          {isLoading ? (
+            <p>Loading...</p>
+          ) : error ? (
+            <p>Failed to load favorite teachers.</p>
+          ) : filteredTeachers.length === 0 ? (
             <p>No teachers found matching your filters.</p>
-           
-            
-          </>
-        ) : (
-          visibleTeachers.map((teacher) => (
-            <li key={teacher.id}>
-              <TeacherCard
-                teacher={teacher}
-                onFavoriteToggle={handleFavoriteToggle}
-                isFavorite={favoriteIds.includes(teacher.id)}
-              />
-            </li>
-          )))}
+          ) : (
+            visibleTeachers.map((teacher) => (
+              <li key={teacher.id}>
+                <TeacherCard
+                  teacher={teacher}
+                  onFavoriteToggle={handleFavoriteToggle}
+                  isFavorite={favoriteIds.includes(teacher.id)}
+                />
+              </li>
+            ))
+          )}
         </ul>
         {hasMore && (
           <button
@@ -123,12 +132,3 @@ export default function TeachersPage() {
     </main>
   );
 }
-
-// English: 10
-// French: 9
-// German: 4
-// Italian: 2
-// Korean: 1
-// Mandarin Chinese: 6
-// Spanish: 9
-// Vietnamese: 1

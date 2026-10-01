@@ -28,3 +28,17 @@
   margin-top: 32px;
   text-align: center;
 }
+.buttonLoad {
+  display: block;
+  width: 100%;
+  max-width: 267px;
+  border-radius: 12px;
+  padding: 16px 0;
+  background-color: var(--color-bg-btn);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55556;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 64px;
+}

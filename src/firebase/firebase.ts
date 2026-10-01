@@ -13,7 +13,6 @@ const firebaseConfig = {
   databaseURL: "https://learnlingo-ce0a1-default-rtdb.firebaseio.com",
 };
 
-
 const app = initializeApp(firebaseConfig);
 
 export const db = getDatabase(app);

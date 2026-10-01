@@ -14,13 +14,13 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/teachers" element={<TeachersPage />} />
         <Route
-  path="/favorites"
-  element={
-    <PrivateRoute>
-      <FavoritesPage />
-    </PrivateRoute>
-  }
-/>
+          path="/favorites"
+          element={
+            <PrivateRoute>
+              <FavoritesPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

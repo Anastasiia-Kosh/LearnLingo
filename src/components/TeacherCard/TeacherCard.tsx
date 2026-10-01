@@ -12,30 +12,40 @@ interface TeacherProps {
   onFavoriteToggle: (teacherId: string) => void;
 }
 
-export default function TeacherCard({ teacher, onFavoriteToggle, isFavorite, }: TeacherProps) {
+export default function TeacherCard({
+  teacher,
+  onFavoriteToggle,
+  isFavorite,
+}: TeacherProps) {
   const { user } = useAuth();
-    const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isTrialOpen, setIsTrialOpen] = useState(false);
 
   const handleFavoriteClick = async () => {
-  if (!user) {
-    toast.error("This feature is available only to authorized users. Please log in or register.");
-    return;
-  }
+    if (!user) {
+      toast.error(
+        "This feature is available only to authorized users. Please log in or register.",
+      );
+      return;
+    }
 
-if (isFavorite) {
-    await removeFavorite(user.uid, teacher.id);
-  } else {
-    await addFavorite(user.uid, teacher.id);
-  }
+    if (isFavorite) {
+      await removeFavorite(user.uid, teacher.id);
+    } else {
+      await addFavorite(user.uid, teacher.id);
+    }
 
-  onFavoriteToggle(teacher.id);
-};
+    onFavoriteToggle(teacher.id);
+  };
   return (
     <article className={css.teacherCard}>
       <div className={css.avatarWrap}>
         {" "}
-        <img className={css.avatar} src={teacher.avatar_url} alt={teacher.name} />
+        <img
+          className={css.avatar}
+          src={teacher.avatar_url}
+          alt={teacher.name}
+        />
       </div>
       <div className={css.textWrap}>
         <div className={css.headWrap}>
@@ -72,14 +82,18 @@ if (isFavorite) {
               Price / 1 hour:
               <span className={css.colorPrice}> {teacher.price_per_hour}$</span>
             </p>
-            <button type="button" className={css.buttonHeart} onClick={handleFavoriteClick}>
-             <svg
-  width="26"
-  height="26"
-  className={isFavorite ? css.favorite : ""}
->
-  <use href="/sprite.svg#icon-heart" />
-</svg>
+            <button
+              type="button"
+              className={css.buttonHeart}
+              onClick={handleFavoriteClick}
+            >
+              <svg
+                width="26"
+                height="26"
+                className={isFavorite ? css.favorite : ""}
+              >
+                <use href="/sprite.svg#icon-heart" />
+              </svg>
             </button>
           </div>
         </div>
@@ -135,12 +149,22 @@ if (isFavorite) {
             </li>
           ))}
         </ul>
-        {isExpanded && <button type="button" className={css.buttonTrial} onClick={() => setIsTrialOpen(true)}>Book trial lesson</button>}
-          </div>
-                {isTrialOpen && (
-  <TrialLessonModal onClose={() => setIsTrialOpen(false)} teacher={teacher} />
-)}
-      </article>
-
+        {isExpanded && (
+          <button
+            type="button"
+            className={css.buttonTrial}
+            onClick={() => setIsTrialOpen(true)}
+          >
+            Book trial lesson
+          </button>
+        )}
+      </div>
+      {isTrialOpen && (
+        <TrialLessonModal
+          onClose={() => setIsTrialOpen(false)}
+          teacher={teacher}
+        />
+      )}
+    </article>
   );
 }

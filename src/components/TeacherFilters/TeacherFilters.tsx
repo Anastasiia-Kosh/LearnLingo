@@ -26,15 +26,19 @@ export default function TeacherFilters({
         <p className={css.label}>Languages</p>
         <button
           type="button"
-       className={css.filterButton}
+          className={css.filterButton}
           onClick={() =>
             setOpenFilter((prev) => (prev === "language" ? null : "language"))
           }
         >
           {selectedFilters.language}
-          <svg className={`${css.icon} ${
-    openFilter === "language" ? css.iconOpen : ""
-  }`} width="10" height="5">
+          <svg
+            className={`${css.icon} ${
+              openFilter === "language" ? css.iconOpen : ""
+            }`}
+            width="10"
+            height="5"
+          >
             <use href="/sprite.svg#icon-v" />
           </svg>
         </button>
@@ -63,17 +67,20 @@ export default function TeacherFilters({
       <div className={css.filter}>
         <p className={css.label}>Level of knowledge</p>
         <button
-      
           type="button"
-      className={css.filterButton}
+          className={css.filterButton}
           onClick={() =>
             setOpenFilter((prev) => (prev === "level" ? null : "level"))
           }
         >
           {selectedFilters.level}
-          <svg className={`${css.icon} ${
-    openFilter === "level" ? css.iconOpen : ""
-  }`} width="10" height="5">
+          <svg
+            className={`${css.icon} ${
+              openFilter === "level" ? css.iconOpen : ""
+            }`}
+            width="10"
+            height="5"
+          >
             <use href="/sprite.svg#icon-v" />
           </svg>
         </button>
@@ -102,18 +109,23 @@ export default function TeacherFilters({
       <div className={css.filter}>
         <p className={css.label}>Price</p>
         <button
-          
           type="button"
-    className={css.filterButton}
+          className={css.filterButton}
           onClick={() =>
             setOpenFilter((prev) => (prev === "price" ? null : "price"))
           }
         >
-          {selectedFilters.price === "Any price" ? selectedFilters.price : `${selectedFilters.price} $`}
-     
-          <svg className={`${css.icon} ${
-    openFilter === "price" ? css.iconOpen : ""
-  }`} width="10" height="5">
+          {selectedFilters.price === "Any price"
+            ? selectedFilters.price
+            : `${selectedFilters.price} $`}
+
+          <svg
+            className={`${css.icon} ${
+              openFilter === "price" ? css.iconOpen : ""
+            }`}
+            width="10"
+            height="5"
+          >
             <use href="/sprite.svg#icon-v" />
           </svg>
         </button>
@@ -123,7 +135,7 @@ export default function TeacherFilters({
               <li key={price}>
                 <button
                   type="button"
-                      className={`${css.option} ${
+                  className={`${css.option} ${
                     selectedFilters.price === price ? css.selected : ""
                   }`}
                   onClick={() => {

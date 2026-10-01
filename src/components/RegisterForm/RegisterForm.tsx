@@ -38,7 +38,7 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
   const onSubmit = async (data: RegisterForm) => {
     try {
       await registerUser(data.name, data.email, data.password);
-      
+
       toast.success(`${data.name}, you have successfully registered!`);
       onClose();
     } catch (error) {

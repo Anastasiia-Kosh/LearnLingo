@@ -50,11 +50,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
 
   return (
     <>
-      <button
-        type="button"
-        className={css.closeButton}
-        onClick={onClose}
-      >
+      <button type="button" className={css.closeButton} onClick={onClose}>
         <svg width="16" height="16">
           <use href="/sprite.svg#icon-x-icon" />
         </svg>
@@ -66,26 +62,15 @@ export default function LoginForm({ onClose }: LoginFormProps) {
         Welcome back! Please enter your credentials to continue.
       </p>
 
-      <form
-        className={css.form}
-        onSubmit={handleSubmit(onSubmit)}
-      >
+      <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={css.formFields}>
           <label
-            className={`${css.formInput} ${
-              errors.email ? css.inputError : ""
-            }`}
+            className={`${css.formInput} ${errors.email ? css.inputError : ""}`}
           >
-            <input
-              type="email"
-              {...register("email")}
-              placeholder="Email"
-            />
+            <input type="email" {...register("email")} placeholder="Email" />
           </label>
 
-          {errors.email && (
-            <p className={css.error}>{errors.email.message}</p>
-          )}
+          {errors.email && <p className={css.error}>{errors.email.message}</p>}
 
           <label
             className={`${css.formInput} ${
@@ -100,9 +85,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
           </label>
 
           {errors.password && (
-            <p className={css.error}>
-              {errors.password.message}
-            </p>
+            <p className={css.error}>{errors.password.message}</p>
           )}
         </div>
 

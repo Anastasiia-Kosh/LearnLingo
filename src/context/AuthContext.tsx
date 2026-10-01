@@ -1,6 +1,4 @@
-import {
-  createContext
-} from "react";
+import { createContext } from "react";
 import type { User } from "firebase/auth";
 
 interface AuthContextValue {
@@ -9,5 +7,3 @@ interface AuthContextValue {
 }
 
 export const AuthContext = createContext<AuthContextValue | null>(null);
-
-

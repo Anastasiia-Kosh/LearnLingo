@@ -14,7 +14,7 @@ export const getFavorites = async (uid: string): Promise<string[]> => {
 
 export const addFavorite = async (
   uid: string,
-  teacherId: string
+  teacherId: string,
 ): Promise<void> => {
   const favoriteRef = ref(db, `users/${uid}/favorites/${teacherId}`);
 
@@ -23,7 +23,7 @@ export const addFavorite = async (
 
 export const removeFavorite = async (
   uid: string,
-  teacherId: string
+  teacherId: string,
 ): Promise<void> => {
   const favoriteRef = ref(db, `users/${uid}/favorites/${teacherId}`);
 

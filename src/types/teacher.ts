@@ -5,7 +5,7 @@ export interface Review {
 }
 
 export interface Teacher {
-    id: string;
+  id: string;
   name: string;
   surname: string;
   languages: string[];
@@ -19,4 +19,3 @@ export interface Teacher {
   conditions: string[];
   experience: string;
 }
-
