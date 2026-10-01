@@ -5,6 +5,7 @@ import { registerUser } from "../../firebase/auth";
 import css from "./AuthForms.module.css";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
+import { useState } from "react";
 
 interface RegisterForm {
   name: string;
@@ -34,6 +35,8 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
   } = useForm<RegisterForm>({
     resolver: yupResolver(schema),
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (data: RegisterForm) => {
     try {
@@ -85,10 +88,25 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
             className={`${css.formInput} ${errors.password ? css.inputError : ""}`}
           >
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               {...register("password")}
               placeholder="Password"
             />
+            <button
+              type="button"
+              className={css.passwordToggle}
+              onClick={() => setShowPassword(!showPassword)}
+            >
+              <svg width="20" height="20">
+                <use
+                  href={
+                    showPassword
+                      ? "/sprite.svg#icon-eye-open"
+                      : "/sprite.svg#icon-eye-off"
+                  }
+                />
+              </svg>
+            </button>
           </label>
           {errors.password && (
             <p className={css.error}>{errors.password.message}</p>
