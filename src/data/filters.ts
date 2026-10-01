@@ -1,6 +1,7 @@
 export const languages = [
   "All languages",
   "English",
+  "French",
   "German",
   "Italian",
   "Korean",

@@ -34,9 +34,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
 
   const onSubmit = async (data: LoginForm) => {
     try {
-      const user = await loginUser(data.email, data.password);
-
-      console.log(user);
+      await loginUser(data.email, data.password);
       toast.success("You have successfully logged in!");
       onClose();
     } catch (error) {

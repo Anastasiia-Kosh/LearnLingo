@@ -14,7 +14,6 @@ export default function TeachersPage() {
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [page, setPage] = useState(1);
-  // const [hasMore, setHasMore] = useState(true);
 
   const [selectedFilters, setSelectedFilters] = useState({
     language: "All languages",
@@ -22,9 +21,21 @@ export default function TeachersPage() {
     price: "Any price",
   });
 
+  const handleFilterChange = (
+    filter: "language" | "level" | "price",
+    value: string,
+  ) => {
+    setSelectedFilters((prev) => ({
+      ...prev,
+      [filter]: value,
+    }));
+
+    setPage(1);
+  };
+
   useEffect(() => {
     const loadTeachers = async () => {
-      const data = await getTeachers(page, PER_PAGE);
+      const data = await getTeachers();
       setTeachers(data);
     };
 
@@ -35,16 +46,21 @@ export default function TeachersPage() {
     const matchesLanguage =
       selectedFilters.language === "All languages" ||
       teacher.languages.includes(selectedFilters.language);
-    
-    const matchesLevel = selectedFilters.level === "All levels" || teacher.levels.includes(selectedFilters.level);
-    
-    const matchesPrice = selectedFilters.price === "Any price" || teacher.price_per_hour === Number(selectedFilters.price);
+
+    const matchesLevel =
+      selectedFilters.level === "All levels" ||
+      teacher.levels.includes(selectedFilters.level);
+
+    const matchesPrice =
+      selectedFilters.price === "Any price" ||
+      teacher.price_per_hour === Number(selectedFilters.price);
 
     return matchesLanguage && matchesLevel && matchesPrice;
   });
 
-  const visibleTeachers = filteredTeachers.slice(0, page * PER_PAGE)
-  
+  const visibleTeachers = filteredTeachers.slice(0, page * PER_PAGE);
+  const hasMore = visibleTeachers.length < filteredTeachers.length;
+
   useEffect(() => {
     if (!user) {
       return;
@@ -72,10 +88,17 @@ export default function TeachersPage() {
         <h1 className="visually-hidden">TeachersPage</h1>
         <TeacherFilters
           selectedFilters={selectedFilters}
-          setSelectedFilters={setSelectedFilters}
+          onFilterChange={handleFilterChange}
         />
         <ul className={css.teacherList}>
-          {visibleTeachers.map((teacher) => (
+          {filteredTeachers.length === 0 ? (
+          <>
+            <p>No teachers found matching your filters.</p>
+           
+            
+          </>
+        ) : (
+          visibleTeachers.map((teacher) => (
             <li key={teacher.id}>
               <TeacherCard
                 teacher={teacher}
@@ -83,9 +106,9 @@ export default function TeachersPage() {
                 isFavorite={favoriteIds.includes(teacher.id)}
               />
             </li>
-          ))}
+          )))}
         </ul>
-        {/* {hasMore && (
+        {hasMore && (
           <button
             type="button"
             className={css.button}
@@ -95,16 +118,7 @@ export default function TeachersPage() {
           >
             Load more
           </button>
-        )} */}
-        <button
-  type="button"
-  className={css.button}
-  onClick={() => {
-    setPage((prev) => prev + 1);
-  }}
->
-  Load more
-</button>
+        )}
       </div>
     </main>
   );
@@ -118,4 +132,3 @@ export default function TeachersPage() {
 // Mandarin Chinese: 6
 // Spanish: 9
 // Vietnamese: 1
-

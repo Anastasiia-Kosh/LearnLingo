@@ -1,29 +1,10 @@
-import {
-  get,
-  limitToFirst,
-  orderByKey,
-  query,
-  ref,
-  startAt,
-} from "firebase/database";
+import { get, ref } from "firebase/database";
 import { db } from "./firebase";
 import type { Teacher } from "../types/teacher";
 
-export const getTeachers = async (
-  page: number,
-  perPage: number,
-): Promise<Teacher[]> => {
-  const start = (page - 1) * perPage;
+export const getTeachers = async (): Promise<Teacher[]> => {
   const teachersRef = ref(db, "teachers");
-  const teachersQuery = query(
-    teachersRef,
-    orderByKey(),
-    startAt(String(start)),
-    limitToFirst(perPage),
-  );
-console.log("page:", page);
-console.log("start:", start);
-  const snapshot = await get(teachersQuery);
+  const snapshot = await get(teachersRef);
 
   const teachers: Teacher[] = [];
 
@@ -34,4 +15,3 @@ console.log("start:", start);
   });
   return teachers;
 };
-
