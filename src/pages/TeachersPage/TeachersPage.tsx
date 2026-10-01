@@ -5,30 +5,46 @@ import type { Teacher } from "../../types/teacher";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import { useAuth } from "../../context/useAuth";
 import { getFavorites } from "../../firebase/favorites";
+import TeacherFilters from "../../components/TeacherFilters/TeacherFilters";
+
+const PER_PAGE = 4;
 
 export default function TeachersPage() {
   const { user } = useAuth();
   const [teachers, setTeachers] = useState<Teacher[]>([]);
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [page, setPage] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const PER_PAGE = 4;
+  // const [hasMore, setHasMore] = useState(true);
+
+  const [selectedFilters, setSelectedFilters] = useState({
+    language: "All languages",
+    level: "All levels",
+    price: "Any price",
+  });
+
   useEffect(() => {
     const loadTeachers = async () => {
       const data = await getTeachers(page, PER_PAGE);
-      if (data.length < PER_PAGE) {
-        setHasMore(false);
-      }
-      if (page === 1) {
-        setTeachers(data);
-      } else {
-        setTeachers((prev) => [...prev, ...data]);
-      }
+      setTeachers(data);
     };
 
     loadTeachers();
-  }, [page]);
+  }, []);
 
+  const filteredTeachers = teachers.filter((teacher) => {
+    const matchesLanguage =
+      selectedFilters.language === "All languages" ||
+      teacher.languages.includes(selectedFilters.language);
+    
+    const matchesLevel = selectedFilters.level === "All levels" || teacher.levels.includes(selectedFilters.level);
+    
+    const matchesPrice = selectedFilters.price === "Any price" || teacher.price_per_hour === Number(selectedFilters.price);
+
+    return matchesLanguage && matchesLevel && matchesPrice;
+  });
+
+  const visibleTeachers = filteredTeachers.slice(0, page * PER_PAGE)
+  
   useEffect(() => {
     if (!user) {
       return;
@@ -53,9 +69,13 @@ export default function TeachersPage() {
   return (
     <main className={css.page}>
       <div className="container">
-        <p>Фільтр</p>
+        <h1 className="visually-hidden">TeachersPage</h1>
+        <TeacherFilters
+          selectedFilters={selectedFilters}
+          setSelectedFilters={setSelectedFilters}
+        />
         <ul className={css.teacherList}>
-          {teachers.map((teacher) => (
+          {visibleTeachers.map((teacher) => (
             <li key={teacher.id}>
               <TeacherCard
                 teacher={teacher}
@@ -65,7 +85,7 @@ export default function TeachersPage() {
             </li>
           ))}
         </ul>
-        {hasMore && (
+        {/* {hasMore && (
           <button
             type="button"
             className={css.button}
@@ -75,8 +95,27 @@ export default function TeachersPage() {
           >
             Load more
           </button>
-        )}
+        )} */}
+        <button
+  type="button"
+  className={css.button}
+  onClick={() => {
+    setPage((prev) => prev + 1);
+  }}
+>
+  Load more
+</button>
       </div>
     </main>
   );
 }
+
+// English: 10
+// French: 9
+// German: 4
+// Italian: 2
+// Korean: 1
+// Mandarin Chinese: 6
+// Spanish: 9
+// Vietnamese: 1
+

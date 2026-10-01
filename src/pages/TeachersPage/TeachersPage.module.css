@@ -1,12 +1,13 @@
 .page {
   background-color: var(--color-bg-tchr);
-  /* padding-top: 64px; */
+  padding-top: 32px;
   padding-bottom: 64px;
 }
 .teacherList {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  margin-top: 32px;
 }
 .button {
   display: block;
