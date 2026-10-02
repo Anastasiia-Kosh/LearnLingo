@@ -49,8 +49,12 @@
   font-size: 18px;
   line-height: 1.55556;
   text-align: center;
+  transition: transform 250ms ease;
 }
-
+.button:hover,
+.button:focus {
+  transform: scale(1.05);
+}
 .image {
   border-radius: 30px;
   width: 100%;

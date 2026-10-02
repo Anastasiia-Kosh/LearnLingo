@@ -69,15 +69,13 @@ export default function FavoritesPage() {
         ) : error ? (
           <p>Failed to load favorite teachers.</p>
         ) : teachers.length === 0 ? (
-          <>
-            <p>
-              You have no favorite teachers yet.
-              <br /> Choose them right now.
-            </p>
+          <div className={css.emptyState}>
+            <p>You have no favorite teachers yet. </p>
+            <p>Choose them right now.</p>
             <Link className={css.button} to="/teachers">
               Go to teachers
             </Link>
-          </>
+          </div>
         ) : (
           <>
             <ul className={css.teacherList}>

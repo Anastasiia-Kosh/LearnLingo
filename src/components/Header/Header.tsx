@@ -63,11 +63,11 @@ export default function Header() {
           <ul className={css.navigAuth}>
             {user ? (
               <>
+                <li className={css.navLink}>
+                  <Link to="/favorites">Favorites</Link>
+                </li>
                 <li className={css.logUserName}>
                   {user.displayName || user.email}
-                </li>
-                <li>
-                  <Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
                   <button
@@ -157,7 +157,7 @@ export default function Header() {
 
                 {user ? (
                   <>
-                    <li>
+                    <li className={css.navLink}>
                       <Link
                         to="/favorites"
                         onClick={() => setIsMenuOpen(false)}
@@ -168,6 +168,7 @@ export default function Header() {
 
                     <li>
                       <button
+                        className={css.authLinkMobile}
                         type="button"
                         onClick={() => {
                           setIsMenuOpen(false);
@@ -182,6 +183,7 @@ export default function Header() {
                   <>
                     <li>
                       <button
+                        className={css.authLinkMobile}
                         type="button"
                         onClick={() => {
                           setIsLoginOpen(true);
@@ -194,6 +196,7 @@ export default function Header() {
 
                     <li>
                       <button
+                        className={css.authLinkMobile}
                         type="button"
                         onClick={() => {
                           setIsRegisterOpen(true);

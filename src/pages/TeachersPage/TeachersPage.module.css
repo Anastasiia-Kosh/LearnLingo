@@ -2,6 +2,7 @@
   background-color: var(--color-bg-tchr);
   padding-top: 32px;
   padding-bottom: 64px;
+  min-height: calc(100vh - 88px);
 }
 .teacherList {
   display: flex;
@@ -22,4 +23,43 @@
   margin: 0 auto;
   text-align: center;
   margin-top: 64px;
+  transition: transform 250ms ease;
+}
+.button:hover,
+.button:focus {
+  transform: scale(1.05);
+}
+
+.emptyState {
+  background-color: var(--color-bg);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  font-size: 32px;
+}
+.buttonReset {
+  display: block;
+  width: 100%;
+  max-width: 267px;
+  border-radius: 12px;
+  padding: 16px 0;
+  background-color: var(--color-bg-btn);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.55556;
+  margin: 0 auto;
+  text-align: center;
+  transition: transform 250ms ease;
+}
+.buttonReset:hover,
+.buttonReset:focus {
+  transform: scale(1.05);
+}
+@media screen and (max-width: 1439px) {
+  .page {
+    min-height: calc(100vh - 80px);
+  }
 }

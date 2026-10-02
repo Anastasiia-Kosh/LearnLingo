@@ -45,6 +45,7 @@ export default function TeacherCard({
       );
     }
   };
+
   return (
     <article className={css.teacherCard}>
       <div className={css.avatarWrap}>
@@ -106,9 +107,9 @@ export default function TeacherCard({
         </div>
 
         <ul className={css.teachInfo}>
-          <li>
+          <li className={css.teachInfoSpeaks}>
             <span className={css.colorCard}>Speaks: </span>
-            {teacher.languages.join(", ")}
+            <p className={css.decoration}>{teacher.languages.join(", ")}</p>
           </li>
           <li>
             <span className={css.colorCard}>Lesson Info: </span>
@@ -131,15 +132,23 @@ export default function TeacherCard({
         {isExpanded && (
           <>
             <p className={css.experience}>{teacher.experience}</p>
+
             <ul className={css.reviewList}>
               {teacher.reviews.map((review) => (
                 <li key={review.reviewer_name} className={css.reviewCard}>
-                  <p className={css.reviewName}>{review.reviewer_name}</p>
                   <div className={css.reviewWrap}>
-                    <svg width="16" height="16">
-                      <use href="/sprite.svg#icon-star" />
-                    </svg>
-                    <p className={css.reviewRating}>{review.reviewer_rating}</p>
+                    <div className={css.reviewsAvatar}>
+                      {review.reviewer_name[0].toUpperCase()}
+                    </div>
+                    <div className={css.reviewsUserWrap}>
+                      <p className={css.reviewName}>{review.reviewer_name}</p>
+                      <p className={css.reviewRating}>
+                        <svg width="16" height="16">
+                          <use href="/sprite.svg#icon-star" />
+                        </svg>
+                        {review.reviewer_rating.toFixed(1)}
+                      </p>
+                    </div>
                   </div>
                   <p className={css.reviewComment}>{review.comment}</p>
                 </li>
@@ -150,7 +159,7 @@ export default function TeacherCard({
         <ul className={css.levelList}>
           {teacher.levels.map((level) => (
             <li key={level} className={css.level}>
-              {level}
+              #{level}
             </li>
           ))}
         </ul>

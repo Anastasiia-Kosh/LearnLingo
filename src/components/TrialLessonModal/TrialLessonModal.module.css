@@ -140,3 +140,9 @@
 .inputError {
   border: 1px solid #d9534f;
 }
+@media screen and (max-width: 1439px) {
+  .closeButton svg {
+    width: 26px;
+    height: 26px;
+  }
+}

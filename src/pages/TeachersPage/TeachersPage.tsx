@@ -109,7 +109,22 @@ export default function TeachersPage() {
           ) : error ? (
             <p>Failed to load teachers.</p>
           ) : filteredTeachers.length === 0 ? (
-            <p>No teachers found matching your filters.</p>
+            <div className={css.emptyState}>
+              <p>No teachers found matching your filters.</p>
+              <p>
+                Try another language, level, or price to find your next teacher.
+              </p>
+              <button className={css.buttonReset} onClick={() => {
+                setSelectedFilters({
+                  language: "All languages",
+                  level: "All levels",
+                  price: "Any price"
+                });
+                setPage(1);
+              }}>
+                Reset Filters
+              </button>
+            </div>
           ) : (
             visibleTeachers.map((teacher) => (
               <li key={teacher.id}>

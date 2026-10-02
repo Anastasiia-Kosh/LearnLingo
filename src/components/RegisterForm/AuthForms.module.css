@@ -52,6 +52,11 @@
   border-radius: 12px;
   padding: 16px 0;
   background-color: var(--color-bg-btn);
+  transition: transform 250ms ease;
+}
+.formButton:hover,
+.formButton:focus {
+  transform: scale(1.05);
 }
 .error {
   font-size: 12px;
@@ -72,7 +77,7 @@
   fill: var(--color-text);
   stroke: var(--color-text);
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1439px) {
   .closeButton svg {
     width: 26px;
     height: 26px;

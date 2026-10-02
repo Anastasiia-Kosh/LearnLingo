@@ -11,6 +11,7 @@
   line-height: 1.5;
   color: var(--color-text-card);
 }
+
 .avatarWrap {
   border: 3px solid var(--color-border);
   border-radius: 100px;
@@ -106,6 +107,14 @@
   gap: 8px;
   flex-direction: column;
 }
+.teachInfoSpeaks {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.decoration {
+  text-decoration: underline;
+}
 .levelList {
   display: flex;
   gap: 8px;
@@ -137,6 +146,16 @@
 .reviewCard {
   display: flex;
   flex-direction: column;
+  gap: 16px;
+}
+.reviewWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.reviewsUserWrap {
+  display: flex;
+  flex-direction: column;
   gap: 2px;
 }
 .reviewName {
@@ -144,14 +163,26 @@
   line-height: 1.5;
   color: var(--color-text-card);
 }
-.reviewWrap {
+
+.reviewsAvatar {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
+  width: 44px;
+  height: 44px;
+  font-weight: 500;
+  color: rgb(18, 20, 23);
+  border: 2px solid var(--color-bg-btn);
+  background-color: var(--color-border);
+  border-radius: 100px;
 }
 .reviewRating {
   font-size: 14px;
   line-height: 1.28571;
+  display: flex;
+  align-items: stretch;
+  font-weight: 500;
+  gap: 8px;
 }
 .reviewComment {
   font-size: 16px;
@@ -165,7 +196,13 @@
   padding: 16px 48px;
   background-color: var(--color-bg-btn);
   margin-top: 32px;
+  transition: transform 250ms ease;
 }
+.buttonTrial:hover,
+.buttonTrial:focus {
+  transform: scale(1.05);
+}
+
 @media screen and (max-width: 1439px) {
   .teacherCard {
     position: relative;
