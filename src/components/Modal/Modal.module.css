@@ -18,6 +18,8 @@
   max-width: var(--modal-width, 600px);
   width: 100%;
   position: relative;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 @media screen and (max-width: 767px) {
   .modal {
