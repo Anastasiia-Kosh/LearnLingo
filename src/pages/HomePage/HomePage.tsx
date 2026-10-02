@@ -3,7 +3,7 @@ import css from "./HomePage.module.css";
 import StatisticInfo from "../../components/StatisticInfo/StatisticInfo";
 export default function HomePage() {
   return (
-    <main>
+    <main className={css.page}>
       <div className="container">
         <div className={css.wrapper}>
           <div className={css.wrapperText}>

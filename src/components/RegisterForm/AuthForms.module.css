@@ -72,3 +72,12 @@
   fill: var(--color-text);
   stroke: var(--color-text);
 }
+@media screen and (max-width: 767px) {
+  .closeButton svg {
+    width: 26px;
+    height: 26px;
+  }
+  .title {
+    font-size: 32px;
+  }
+}

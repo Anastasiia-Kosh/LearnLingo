@@ -1,6 +1,5 @@
 .statistic {
-  margin-top: 24px;
-  margin-bottom: 32px;
+  padding-bottom: 32px;
 }
 .statisticWrapper {
   display: flex;
@@ -28,4 +27,21 @@
   letter-spacing: -0.02em;
   color: rgba(18, 20, 23, 0.7);
   max-width: 90px;
+}
+
+@media screen and (max-width: 1439px) {
+  .statisticWrapper {
+    padding: 20px 0;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .statisticWrapper {
+    padding: 32px 0;
+    gap: 32px;
+  }
+  .count {
+    font-size: 22px;
+  }
 }

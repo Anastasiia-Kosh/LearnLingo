@@ -70,3 +70,72 @@
   align-items: center;
   gap: 8px;
 }
+.burgerButton {
+  display: none;
+}
+.mobileMenu {
+  display: none;
+}
+
+@media screen and (max-width: 1439px) {
+  .header {
+    padding: 20px 0;
+  }
+  .burgerButton {
+    display: block;
+  }
+  .burgerButton svg {
+    width: 36px;
+    height: 36px;
+    fill: var(--color-text);
+    stroke: var(--color-text);
+  }
+  .burgerButtonClose svg {
+    width: 36px;
+    height: 36px;
+    fill: var(--color-text);
+    stroke: var(--color-text);
+  }
+  .navigation,
+  .navigAuth {
+    display: none;
+  }
+  .mobileMenu {
+    display: block;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 68px);
+    background: var(--color-bg);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition:
+      opacity 250ms ease,
+      transform 500ms ease,
+      visibility 250ms ease;
+  }
+
+  .menuOpen {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .mobileNavigation {
+    position: relative;
+    display: flex;
+    padding: 32px;
+    width: 100%;
+    height: 100%;
+  }
+  .mobileNavigationList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .mobileNavigationList li {
+    font-size: 20px;
+  }
+}

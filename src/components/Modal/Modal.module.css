@@ -19,3 +19,9 @@
   width: 100%;
   position: relative;
 }
+@media screen and (max-width: 767px) {
+  .modal {
+    padding: 32px 20px;
+    max-width: 90%;
+  }
+}

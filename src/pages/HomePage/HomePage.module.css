@@ -1,3 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 .wrapper {
   display: flex;
   justify-content: space-between;
@@ -8,8 +13,10 @@
   background-color: var(--color-bg-tchr);
   padding: 98px 64px;
 }
+
 .wrapperPhoto {
-  min-width: 568px;
+  width: 568px;
+  flex-shrink: 0;
 }
 .title {
   font-weight: 500;
@@ -41,11 +48,44 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.55556;
-  margin-top: 32px;
   text-align: center;
 }
 
 .image {
   border-radius: 30px;
   width: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 1439px) {
+  .wrapper {
+    gap: 18px;
+  }
+  .wrapperText {
+    padding: 24px;
+  }
+  .wrapperPhoto {
+    width: 45%;
+  }
+  .title {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+
+  .descr {
+    margin-bottom: 24px;
+  }
+  .button {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .wrapperPhoto {
+    width: 100%;
+  }
 }
