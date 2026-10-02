@@ -14,7 +14,7 @@
 .avatarWrap {
   border: 3px solid var(--color-border);
   border-radius: 100px;
-  min-width: 120px;
+  width: 120px;
   height: 120px;
   display: flex;
   align-items: center;
@@ -126,6 +126,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
+  margin-top: 16px;
   margin-bottom: 32px;
 }
 .reviewList {
@@ -164,4 +165,56 @@
   padding: 16px 48px;
   background-color: var(--color-bg-btn);
   margin-top: 32px;
+}
+@media screen and (max-width: 1439px) {
+  .teacherCard {
+    position: relative;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .userWrap {
+    position: absolute;
+    flex-wrap: wrap;
+    top: 24px;
+    left: 200px;
+  }
+  .buttonHeart {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+  }
+  .levelList {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 767px) {
+  .teacherCard {
+    padding: 18px;
+  }
+  .avatarWrap {
+    width: 80px;
+    height: 80px;
+  }
+  .avatar {
+    width: 65px;
+  }
+  .userWrap {
+    top: 18px;
+    left: 110px;
+  }
+  .buttonHeart {
+    top: 18px;
+    right: 18px;
+  }
+  .wrapRating {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .iconStroke {
+    display: none;
+  }
+  .headWrap {
+    margin-bottom: 24px;
+  }
 }

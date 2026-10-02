@@ -58,3 +58,8 @@
 .selected {
   color: var(--color-text);
 }
+@media screen and (max-width: 1439px) {
+  .filters {
+    flex-direction: column;
+  }
+}
