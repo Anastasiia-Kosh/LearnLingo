@@ -1,75 +1,176 @@
-# React + TypeScript + Vite
+# LearnLingo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![LearnLingo](./assets/learn_lingo.webp)
 
-Currently, two official plugins are available:
+LearnLingo is a responsive web application for finding online language tutors. Users can browse teachers, filter them by language, level, and price, view detailed information and reviews, add teachers to favorites, and book a trial lesson.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Live Demo
 
-## React Compiler
+[LearnLingo](https://learn-lingo-chi-self.vercel.app/)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- Responsive Home page
+- Teachers catalog with teacher cards
+- Filtering by:
+  - language
+  - level of knowledge
+  - price per hour
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Teacher details with experience and student reviews
+- "Read more" functionality
+- Trial lesson booking modal
+- Form validation with React Hook Form and Yup
+- User registration and login with Firebase Authentication
+- Logout functionality
+- Protected Favorites page
+- Add and remove teachers from favorites
+- Favorites stored in Firebase Realtime Database
+- Mobile responsive navigation menu
+- Password visibility toggle
+- Loading and error states
+- Toast notifications
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- React
+- TypeScript
+- Vite
+- React Router
+- Firebase Authentication
+- Firebase Realtime Database
+- React Hook Form
+- Yup
+- React Hot Toast
+- CSS Modules
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Authentication
 
+Authentication is implemented with Firebase Authentication.
+
+Users can:
+
+- create an account;
+- log in with email and password;
+- log out;
+- access the private Favorites page after authentication.
+
+The current authenticated user is managed through React Context.
+
+## Firebase Database
+
+Firebase Realtime Database is used to store:
+
+- teacher information;
+- user favorites.
+
+Each teacher contains information about their name, languages, levels, rating, completed lessons, price, experience, conditions, and reviews.
+
+## Forms
+
+Forms are implemented using React Hook Form with Yup validation.
+
+The project includes:
+
+- Login form
+- Registration form
+- Trial lesson booking form
+
+Validation errors are displayed directly in the forms, while Firebase errors are handled with toast notifications.
+
+## Responsive Design
+
+The application is adapted for:
+
+- desktop;
+- tablet;
+- mobile devices.
+
+Responsive layouts are implemented with CSS Modules and media queries.
+
+The header also includes a mobile navigation menu with scroll locking while the menu is open.
+
+## Environment Variables
+
+Create a `.env` file in the project root and add your Firebase configuration:
+
+```env
+VITE_FIREBASE_API_KEY=
+VITE_FIREBASE_AUTH_DOMAIN=
+VITE_FIREBASE_PROJECT_ID=
+VITE_FIREBASE_STORAGE_BUCKET=
+VITE_FIREBASE_MESSAGING_SENDER_ID=
+VITE_FIREBASE_APP_ID=
+VITE_FIREBASE_MEASUREMENT_ID=
+VITE_FIREBASE_DATABASE_URL=
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+See `.env.example` for the required variables.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Clone the repository:
 
+```bash
+git clone https://github.com/Anastasiia-Kosh/LearnLingo.git
 ```
+
+Navigate to the project directory:
+
+```bash
+cd LearnLingo
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Create the `.env` file and add your Firebase configuration.
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+## Available Scripts
+
+### Development
+
+```bash
+npm run dev
+```
+
+Starts the Vite development server.
+
+### Lint
+
+```bash
+npm run lint
+```
+
+Runs ESLint to check the project for code quality issues.
+
+### Build
+
+```bash
+npm run build
+```
+
+Creates a production build of the application.
+
+### Preview
+
+```bash
+npm run preview
+```
+
+Runs the production build locally.
+
+## Deployment
+
+The application is deployed on Vercel.
+
+[Open LearnLingo](https://learn-lingo-chi-self.vercel.app/)

@@ -43,12 +43,12 @@ export default function Header() {
     <header className={css.header}>
       <div className="container">
         <div className={css.wrapperHeader}>
-          <a href="/" className={css.logo}>
+          <Link to="/" className={css.logo}>
             <svg width="24" height="24">
               <use href="/sprite.svg#icon-ukraine" />
             </svg>
             LearnLingo
-          </a>
+          </Link>
           <nav className={css.navigation}>
             <ul className={css.navigLinks}>
               <li className={css.navLink}>
