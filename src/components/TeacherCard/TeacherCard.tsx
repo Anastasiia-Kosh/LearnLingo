@@ -69,11 +69,11 @@ export default function TeacherCard({
               </svg>
               Lessons online
             </p>
-            <svg className={css.iconStroke}width="1" height="16">
+            <svg className={css.iconStroke} width="1" height="16">
               <use href="/sprite.svg#icon-stroke" />
             </svg>
             <p>Lessons done: {teacher.lessons_done}</p>
-            <svg className={css.iconStroke}width="1" height="16">
+            <svg className={css.iconStroke} width="1" height="16">
               <use href="/sprite.svg#icon-stroke" />
             </svg>
             <p className={css.iconBook}>
@@ -82,7 +82,7 @@ export default function TeacherCard({
               </svg>
               Rating: {teacher.rating}
             </p>
-            <svg className={css.iconStroke}width="1" height="16">
+            <svg className={css.iconStroke} width="1" height="16">
               <use href="/sprite.svg#icon-stroke" />
             </svg>
             <p>

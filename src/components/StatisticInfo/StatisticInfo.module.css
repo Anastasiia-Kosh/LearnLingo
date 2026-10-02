@@ -33,13 +33,21 @@
   .statisticWrapper {
     padding: 20px 0;
     flex-wrap: wrap;
-    gap: 48px;
+    gap: 24px;
+  }
+  .statisticCard {
+    width: calc((100% - 24px) / 2);
+    justify-content: center;
   }
 }
 @media screen and (max-width: 767px) {
   .statisticWrapper {
     padding: 32px 0;
-    gap: 32px;
+    flex-direction: column;
+  }
+  .statisticCard {
+    width: 100%;
+    justify-content: center;
   }
   .count {
     font-size: 22px;
