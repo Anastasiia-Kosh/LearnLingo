@@ -95,7 +95,7 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
             <button
               type="button"
               className={css.passwordToggle}
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowPassword(prev => !prev)}
             >
               <svg width="20" height="20">
                 <use

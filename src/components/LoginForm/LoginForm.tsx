@@ -88,7 +88,7 @@ export default function LoginForm({ onClose }: LoginFormProps) {
             <button
               type="button"
               className={css.passwordToggle}
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={() => setShowPassword(prev => !prev)}
             >
               <svg width="20" height="20">
                 <use

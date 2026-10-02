@@ -92,22 +92,24 @@ main {
   flex: 1;
 }
 
-/* Styles for Mobile devices */
+/* Desktop — базові стилі */
 .container {
   width: 100%;
-  padding: 0 20px;
+  max-width: 1440px;
+  padding: 0 64px;
   margin: 0 auto;
 }
-/* Styles for Tablet devices */
-@media screen and (min-width: 768px) {
+
+/* Tablet */
+@media screen and (max-width: 1439px) {
   .container {
     padding: 0 32px;
   }
 }
-/* Styles for Desktop devices */
-@media screen and (min-width: 1440px) {
+
+/* Mobile */
+@media screen and (max-width: 767px) {
   .container {
-    max-width: 1440px;
-    padding: 0 64px;
+    padding: 0 20px;
   }
 }

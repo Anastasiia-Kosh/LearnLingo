@@ -48,7 +48,6 @@ export default function TeacherCard({
   return (
     <article className={css.teacherCard}>
       <div className={css.avatarWrap}>
-        {" "}
         <img
           className={css.avatar}
           src={teacher.avatar_url}
@@ -108,12 +107,10 @@ export default function TeacherCard({
 
         <ul className={css.teachInfo}>
           <li>
-            {" "}
             <span className={css.colorCard}>Speaks: </span>
             {teacher.languages.join(", ")}
           </li>
           <li>
-            {" "}
             <span className={css.colorCard}>Lesson Info: </span>
             {teacher.lesson_info}
           </li>
