@@ -7,6 +7,7 @@ import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import css from "./FavoritesPage.module.css";
 import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const PER_PAGE = 4;
 
@@ -65,7 +66,7 @@ export default function FavoritesPage() {
         <h1 className={css.title}>My favorite teachers</h1>
 
         {isLoading ? (
-          <p>Loading...</p>
+          <Loader />
         ) : error ? (
           <p>Failed to load favorite teachers.</p>
         ) : teachers.length === 0 ? (

@@ -7,6 +7,7 @@ import { useAuth } from "../../context/useAuth";
 import { getFavorites } from "../../firebase/favorites";
 import TeacherFilters from "../../components/TeacherFilters/TeacherFilters";
 import toast from "react-hot-toast";
+import Loader from "../../components/Loader/Loader";
 
 const PER_PAGE = 4;
 
@@ -105,7 +106,7 @@ export default function TeachersPage() {
         />
         <ul className={css.teacherList}>
           {isLoading ? (
-            <p>Loading...</p>
+            <Loader />
           ) : error ? (
             <p>Failed to load teachers.</p>
           ) : filteredTeachers.length === 0 ? (
@@ -114,14 +115,17 @@ export default function TeachersPage() {
               <p>
                 Try another language, level, or price to find your next teacher.
               </p>
-              <button className={css.buttonReset} onClick={() => {
-                setSelectedFilters({
-                  language: "All languages",
-                  level: "All levels",
-                  price: "Any price"
-                });
-                setPage(1);
-              }}>
+              <button
+                className={css.buttonReset}
+                onClick={() => {
+                  setSelectedFilters({
+                    language: "All languages",
+                    level: "All levels",
+                    price: "Any price",
+                  });
+                  setPage(1);
+                }}
+              >
                 Reset Filters
               </button>
             </div>

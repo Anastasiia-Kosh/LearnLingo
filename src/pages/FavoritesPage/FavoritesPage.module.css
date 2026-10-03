@@ -2,6 +2,7 @@
   background-color: var(--color-bg-tchr);
   padding-top: 20px;
   padding-bottom: 64px;
+  min-height: calc(100vh - 88px);
 }
 .teacherList {
   display: flex;

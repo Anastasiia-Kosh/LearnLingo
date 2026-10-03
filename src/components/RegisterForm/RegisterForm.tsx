@@ -6,6 +6,7 @@ import css from "./AuthForms.module.css";
 import { FirebaseError } from "firebase/app";
 import toast from "react-hot-toast";
 import { useState } from "react";
+import Loader from "../Loader/Loader";
 
 interface RegisterForm {
   name: string;
@@ -37,8 +38,10 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data: RegisterForm) => {
+    setIsLoading(true);
     try {
       await registerUser(data.name, data.email, data.password);
 
@@ -52,6 +55,8 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
           toast.error("Something went wrong. Please try again.");
         }
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -95,7 +100,7 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
             <button
               type="button"
               className={css.passwordToggle}
-              onClick={() => setShowPassword(prev => !prev)}
+              onClick={() => setShowPassword((prev) => !prev)}
             >
               <svg width="20" height="20">
                 <use
@@ -113,8 +118,8 @@ export default function RegisterForm({ onClose }: RegisterFormProps) {
           )}
         </div>
 
-        <button className={css.formButton} type="submit">
-          Sign Up
+        <button className={css.formButton} type="submit" disabled={isLoading}>
+          {isLoading ? <Loader size="small" /> : "Sign up"}
         </button>
       </form>
     </>
