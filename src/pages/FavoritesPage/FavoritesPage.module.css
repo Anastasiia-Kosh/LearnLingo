@@ -22,23 +22,12 @@
   max-width: 267px;
   border-radius: 12px;
   padding: 16px 0;
-  background-color: var(--color-bg-btn);
-  font-weight: 700;
-  line-height: 1.55556;
-  text-align: center;
-}
-.buttonLoad {
-  display: block;
-  width: 100%;
-  max-width: 267px;
-  border-radius: 12px;
-  padding: 16px 0;
-  background-color: var(--color-bg-btn);
-  font-weight: 700;
   font-size: 18px;
+  background-color: var(--color-bg-btn);
+  font-weight: 700;
   line-height: 1.55556;
-  margin: 0 auto;
   text-align: center;
+  margin: 0 auto;
   margin-top: 64px;
 }
 .emptyState {
@@ -47,7 +36,6 @@
   padding: 36px;
   display: flex;
   flex-direction: column;
-  gap: 48px;
   align-items: center;
   font-size: 32px;
 }

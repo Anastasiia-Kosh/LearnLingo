@@ -16,7 +16,6 @@ LearnLingo is a responsive web application for finding online language tutors. U
   - language
   - level of knowledge
   - price per hour
-
 - Teacher details with experience and student reviews
 - "Read more" functionality
 - Trial lesson booking modal

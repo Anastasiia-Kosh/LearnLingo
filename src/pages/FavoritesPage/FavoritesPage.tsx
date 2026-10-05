@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "../../context/useAuth";
 import type { Teacher } from "../../types/teacher";
-import { getTeachers } from "../../firebase/teachers";
+import { getAllTeachers } from "../../firebase/teachers";
 import { getFavorites, removeFavorite } from "../../firebase/favorites";
 import TeacherCard from "../../components/TeacherCard/TeacherCard";
 import css from "./FavoritesPage.module.css";
@@ -26,7 +26,7 @@ export default function FavoritesPage() {
         }
 
         const favoriteIds = await getFavorites(user.uid);
-        const teachers = await getTeachers();
+        const teachers = await getAllTeachers();
 
         const favoriteTeachers = teachers.filter((teacher) =>
           favoriteIds.includes(teacher.id),
@@ -93,7 +93,7 @@ export default function FavoritesPage() {
             {hasMore && (
               <button
                 type="button"
-                className={css.buttonLoad}
+                className={css.button}
                 onClick={() => setPage((prev) => prev + 1)}
               >
                 Load more
