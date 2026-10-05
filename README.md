@@ -1,8 +1,8 @@
 # LearnLingo
 
-![LearnLingo](./assets/learn_lingo.webp)
-
 LearnLingo is a responsive web application for finding online language tutors. Users can browse teachers, filter them by language, level, and price, view detailed information and reviews, add teachers to favorites, and book a trial lesson.
+
+![LearnLingo](./assets/learn_lingo.webp)
 
 ## Live Demo
 
@@ -10,25 +10,16 @@ LearnLingo is a responsive web application for finding online language tutors. U
 
 ## Features
 
-- Responsive Home page
-- Teachers catalog with teacher cards
-- Filtering by:
-  - language
-  - level of knowledge
-  - price per hour
-- Teacher details with experience and student reviews
-- "Read more" functionality
-- Trial lesson booking modal
-- Form validation with React Hook Form and Yup
-- User registration and login with Firebase Authentication
-- Logout functionality
-- Protected Favorites page
-- Add and remove teachers from favorites
-- Favorites stored in Firebase Realtime Database
-- Mobile responsive navigation menu
-- Password visibility toggle
-- Loading and error states
-- Toast notifications
+- Responsive design for mobile, tablet, and desktop devices.
+- Teacher catalog with hybrid pagination: server-side pagination for the unfiltered catalog and client-side pagination for filtered results.
+- Client-side filtering by language, proficiency level, and hourly price with combined filter support.
+- Favorites management with persistent user data stored in Firebase Realtime Database.
+- User authentication with Firebase Authentication, including registration, login, and logout.
+- Teacher cards with expandable information, reviews, experience details, and favorite controls.
+- Trial lesson booking through a validated modal form.
+- Loading, empty, and error states for a better user experience.
+- Reusable React components with TypeScript for type-safe development.
+- Toast notifications for user feedback.
 
 ## Tech Stack
 
@@ -70,21 +61,15 @@ Forms are implemented using React Hook Form with Yup validation.
 
 The project includes:
 
-- Login form
-- Registration form
-- Trial lesson booking form
+- Login form;
+- Registration form;
+- Trial lesson booking form.
 
 Validation errors are displayed directly in the forms, while Firebase errors are handled with toast notifications.
 
 ## Responsive Design
 
-The application is adapted for:
-
-- desktop;
-- tablet;
-- mobile devices.
-
-Responsive layouts are implemented with CSS Modules and media queries.
+The application uses CSS Modules and media queries to provide a responsive layout across different screen sizes.
 
 The header also includes a mobile navigation menu with scroll locking while the menu is open.
 
@@ -166,9 +151,3 @@ npm run preview
 ```
 
 Runs the production build locally.
-
-## Deployment
-
-The application is deployed on Vercel.
-
-[Open LearnLingo](https://learn-lingo-chi-self.vercel.app/)
