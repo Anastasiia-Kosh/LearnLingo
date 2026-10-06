@@ -151,3 +151,7 @@ npm run preview
 ```
 
 Runs the production build locally.
+
+## Maket
+
+[Figma](https://www.figma.com/design/dewf5jVviSTuWMMyU3d8Mc/Learn-Lingo?node-id=0-1&p=f&t=zp8W3GcStGPDRAWt-0)
